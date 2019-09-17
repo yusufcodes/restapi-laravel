@@ -21,20 +21,20 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'v1'], function () {
     Route::resource('meeting', 'MeetingController', [
         //edit and create: These routes aren't needed as no webpages are being displayed with the API
-        'except' => ['edit', 'create'];
+        'except' => ['edit', 'create']
     ]);
     
     Route::resource('meeting/registration', 'RegistrationController', [
         //store and destroy: the only routes needed as you can either register (store) or unregister (destroy)
-        'only' => ['store', 'destroy'];
+        'only' => ['store', 'destroy']
     ]);
     
     // POST Routes to handle actions for users of the API
-    Route::post('user' [
+    Route::post('user', [
         'uses' => 'AuthController@store'
     ]);
     
-    Route::post('user/sigin' [
+    Route::post('user/sigin', [
         'uses' => 'AuthController@signin'
     ]);
 });
