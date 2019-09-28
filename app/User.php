@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Meetings that belong to a user
+    public function meetings()
+    {
+        $this->belongsToMany('App\Meeting');
+    }
+
+    
 }
